@@ -1,16 +1,28 @@
-/*
- * MCP23S17_Example.c
- *
- * Created: 12/4/2017 11:50:45 AM
- * 
- * The below code is based on a tutorial from the ermicroblog:
- * http://www.ermicro.com/blog/?p=1050 
- * 
- */ 
-#define F_CPU 1600000UL
+/********************************************************************************
+Date: 11/24/2017
+Version: 1.0.0
+License: USE AT YOUR OWN RISK
+
+Notes:
+------
+ The below code is based on a tutorial from the ermicroblog:
+ http://www.ermicro.com/blog/?p=1050
+
+Hardware Connections:
+---------------------
+VCC from AVR to VDD on MCP
+MOSI from AVR to SI on MCP
+MISO from AVR to SO on MCP
+SS from AVR to CS on MCP
+GND from AVR to Vss on MCP
+A0, A1, and A2 on MCP go to ground to set the address (change as needed)
+
+********************************************************************************/
+#define F_CPU 16000000UL
 #include <avr/io.h>
 #include <util/delay.h>
 
+// AVR SPI PINS, Helps make the code more readable
 #define SPI_MOSI PB3
 #define SPI_SCK PB5
 #define SPI_SS PB2
